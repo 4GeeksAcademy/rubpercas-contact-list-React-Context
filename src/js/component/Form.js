@@ -22,10 +22,14 @@ const Form = () => {
                     <label className="form-label">Address</label>
                     <input type="text" className="form-control" id="exampleInputText2" placeholder="Address" />
                 </div>
-                <button type="submit" className="btn btn-primary">Save</button>
-                <span className="ms-2">asdfasdfasd</span>
-            </form>
-        </div>
+                <button type="submit" className="btn btn-primary w-100">Save</button>
+                <div className="mb-3">
+                    <Link to="/">
+                        <span className="ms-2">or get back to contacts</span>
+                    </Link>
+                </div>
+            </form >
+        </div >
     )
 }
 
