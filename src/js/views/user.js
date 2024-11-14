@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "../component/Login"
 
-export const Single = () => {
+export const User = () => {
 
 	return (
 		<div>
