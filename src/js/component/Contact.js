@@ -8,13 +8,13 @@ const Contact = () => {
     return (
         <div className="card">
             <div className="left">
-                <img src="..." className="image-card" alt="..." />
+                <img src="https://cdn.pixabay.com/photo/2024/11/03/22/57/dogs-9172481_1280.jpg" className="card-image" alt="..." />
             </div>
             <div className="center">
-                <p>NAME</p>
-                <span>ADDRESS</span>
-                <span>PHONE</span>
-                <span>EMAIL</span>
+                <span className="card-info">NAME</span>
+                <span className="card-info">ADDRESS</span>
+                <span className="card-info">PHONE</span>
+                <span className="card-info">EMAIL</span>
             </div>
             <div className="right">
                 <p><FontAwesomeIcon icon={faPen} style={{color: "#000000",}} /></p>
