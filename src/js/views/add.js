@@ -29,7 +29,6 @@ export const Add = () => {
         } else {
             actions.editContact(id, payload)
         }
-        alert("Se grabo los datos del contacto");
         navigate("/");
         setName("");
         setPhone("");
@@ -50,7 +49,7 @@ export const Add = () => {
     return (
         <div className="container-form d-flex align-items-center justify-content-center">
             <form className="w-75" onSubmit={guardarContacto}>
-                <h4 className="text-center mt-2">{!id ? "Add a New Contact" : `Editing Contact: ${name}`}</h4>
+                <h4 className="text-center mt-2">{!id ? "Add New Contact" : `Editing ${name}`}</h4>
                 <div className="mb-3">
                     <label className="form-label">Full name</label>
                     <input type="text" className="form-control" id="exampleInputText" placeholder="Full name" onChange={(e) => setName(e.target.value)} value={name} required />

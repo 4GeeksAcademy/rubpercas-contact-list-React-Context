@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash, faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
 
@@ -16,22 +16,22 @@ const Contact = ({ contact }) => {
     };
 
     return (
-        <div className="card">
+        <div className="card mt-1">
             <div className="left">
                 <img src="https://cdn.pixabay.com/photo/2024/11/03/22/57/dogs-9172481_1280.jpg" className="card-image" alt="..." />
             </div>
             <div className="center">
                 <span className="card-info">{contact.name}</span>
-                <span className="card-info">{contact.address}</span>
-                <span className="card-info">{contact.phone}</span>
-                <span className="card-info">{contact.email}</span>
+                <span className="card-info"><FontAwesomeIcon icon={faLocationDot} style={{color: "#000000",}} /> {contact.address}</span>
+                <span className="card-info"><FontAwesomeIcon icon={faPhone} style={{color: "#000000",}} /> {contact.phone}</span>
+                <span className="card-info"><FontAwesomeIcon icon={faEnvelope} style={{color: "#000000",}} /> {contact.email}</span>
             </div>
             <div className="right">
                 <Link to={"/editContact/" + contact.id} className="btn btn-link p-0 me-3">
                     <FontAwesomeIcon icon={faPen} style={{ color: "#000000", }} />
                 </Link>
 
-                <button type="button" data-bs-toggle="modal" data-bs-target={"#delete-contact-" + contact.id} >
+                <button className="btn btn-link p-0 me-3" type="button" data-bs-toggle="modal" data-bs-target={"#delete-contact-" + contact.id} >
                     <FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} />
                 </button>
 
