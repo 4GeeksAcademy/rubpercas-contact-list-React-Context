@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
+import { Form } from "./component/Form"
 import { Home } from "./views/home";
 import { Add } from "./views/add";
 import { User } from "./views/user";
@@ -24,8 +24,9 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/add" element={<Add />} />
-						<Route path="/user" element={<User />} />
+						<Route path="/editContact/:id" element={<Add />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/Form" element={<Form />} />
 					</Routes>
 					<Footer />
 				</ScrollToTop>
