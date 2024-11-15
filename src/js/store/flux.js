@@ -88,7 +88,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			editContact: async (id, contact) => {
 				const store = getStore();
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/4geeks-user/contacts/${id}`, {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/rubpercas/contacts/${id}`, {
 						method: "PUT",
 						headers: {
 							'Content-Type': 'application/json',

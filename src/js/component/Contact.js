@@ -30,15 +30,12 @@ const Contact = ({ contact }) => {
                 <Link to={"/editContact/" + contact.id} className="btn btn-link p-0 me-3">
                     <FontAwesomeIcon icon={faPen} style={{ color: "#000000", }} />
                 </Link>
-                {/* <button className="btn btn-link p-0" onClick={eliminarContacto}>
-                        <i className="fa fa-trash fa-lg"></i>
-                    </button> */}
-                {/* <!-- Button trigger modal --> */}
+
                 <button type="button" data-bs-toggle="modal" data-bs-target={"#delete-contact-" + contact.id} >
                     <FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} />
                 </button>
 
-                {/* <!-- Modal --> */}
+
                 <div className="modal fade" id={"delete-contact-" + contact.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
