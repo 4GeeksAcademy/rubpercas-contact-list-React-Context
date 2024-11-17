@@ -44,11 +44,11 @@ const Contact = ({ contact }) => {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                If you delete this thing the etire universe will go down!
+                                Do you want to delete the contact?
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Oh no!</button>
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={eliminarContacto}>Yes baby!</button>
+                                <button type="button" className="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                                <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick={eliminarContacto}>YES</button>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			contactList: []
+			contactList: [],
+			userName: "",
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -21,12 +22,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-
 			getAgenda: async () => {
 				try {
 					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas/contacts");
 					if (response.status == 404) {
 						getActions().createUser();
+						getActions().createAgenda();
 					}
 					if (response.ok) {
 						console.log("peticion ok")
@@ -60,6 +61,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const actions = getActions();
 					actions.addContact(result);
 					console.log("Contact added:", result);
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			createAgenda: async () => {
+				try {
+					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas", {
+						method: "POST",
+						headers: {
+							'Accept': 'application/json'
+						},
+					})
+					const result = await response.json();
+					console.log(result);
+					console.log("Agenda created.");
 				} catch (error) {
 					console.log(error);
 				}
