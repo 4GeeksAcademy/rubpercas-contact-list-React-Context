@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -8,6 +6,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+			setUserInput: (newUserName) => {
+				const store = getStore();
+				setStore({ ...store, userName: newUserName });
+				console.log("User saved");
+			},
 			createUser: async () => {
 				try {
 					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas", {
