@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			contactList: [],
 			userName: "",
+			isLoggedIn: false
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -10,6 +11,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ ...store, userName: newUserName });
 				console.log("User saved");
+			},
+			setIsLoggedIn: (isLoggedIn) => {
+				const store = getStore();
+				setStore({ ...store, isLoggedIn })
 			},
 			createUser: async () => {
 				try {

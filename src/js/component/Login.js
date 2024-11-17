@@ -22,18 +22,21 @@ const Login = () => {
                             pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                             onChange={(e) => setUser(e.target.value)}
                             required />
-                        <label className="c-form__buttonLabel" for="checkbox">
+                        <label className="c-form__buttonLabel" htmlFor="checkbox">
                             <button
                                 className="c-form__button"
-                                onClick={ () => {actions.setUserInput(user)}}
+                                onClick={() => {
+                                    actions.setUserInput(user);
+                                    actions.setIsLoggedIn(true);
+                                }}
                                 type="button">
                                 <FontAwesomeIcon icon={faUser} style={{ color: "#0d6efd", }} />
                             </button>
                         </label>
-                        <label className="c-form__buttonLabel" for="checkbox">
+                        <label className="c-form__buttonLabel" htmlFor="checkbox">
                             <button className="c-form__button me-1" type="button"><FontAwesomeIcon icon={faRightToBracket} style={{ color: "#0d6efd", }} /></button>
                         </label>
-                        <label className="c-form__toggle" for="checkbox" data-title="Login / New user"></label>
+                        <label className="c-form__toggle" htmlFor="checkbox" data-title="Login / New user"></label>
                     </form>
                 </div>
             </div>
