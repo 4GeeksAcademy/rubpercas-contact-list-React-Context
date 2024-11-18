@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
 import "../../styles/login.css";
-import { faRightToBracket, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router";
 
 const Login = () => {
     const { store, actions } = useContext(Context);
     const [user, setUser] = useState("");
-
+    const navigate = useNavigate();
+    if(store.isLoggedIn) navigate("/");
     return (
         <div>
             <h1 className="text-center mb-5">WELCOME</h1>
