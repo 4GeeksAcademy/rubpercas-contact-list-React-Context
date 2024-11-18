@@ -12,7 +12,7 @@ const Contact = ({ contact }) => {
 
     const eliminarContacto = () => {
         console.log(contact)
-        actions.deleteContact(contact.id);
+        actions.deleteContact(contact.id, store.userName);
     };
 
     return (
@@ -53,8 +53,6 @@ const Contact = ({ contact }) => {
                         </div>
                     </div>
                 </div>
-                {/* <p><FontAwesomeIcon icon={faPen} style={{ color: "#000000", }} /></p>
-                    <p><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></p> */}
             </div>
         </div>
     )

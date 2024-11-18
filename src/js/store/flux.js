@@ -15,10 +15,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setIsLoggedIn: (isLoggedIn) => {
 				const store = getStore();
 				setStore({ ...store, isLoggedIn })
+				console.log(store.isLoggedIn);
 			},
-			createUser: async () => {
+			logOut: () => {
+				const store = getStore();
+				setStore({ 
+					isLoggedIn: false,
+					userName: "",
+					contactList: []						
+				 })
+			},
+			createUser: async (user) => {
 				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas", {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}`, {
 						method: "POST",
 						headers: {
 							"Accept": "application/json"
@@ -30,9 +39,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-			getAgenda: async () => {
+			getAgenda: async (user) => {
 				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas/contacts");
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}/contacts`);
 					if (response.status == 404) {
 						getActions().createUser();
 						getActions().createAgenda();
@@ -53,9 +62,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ ...store, contactList: [...store.contactList, newContact] })
 			},
-			createContact: async (payload) => {
+			createContact: async (payload, user) => {
 				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas/contacts", {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}/contacts`, {
 						method: "POST",
 						headers: {
 							'Content-Type': 'application/json'
@@ -73,9 +82,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-			createAgenda: async () => {
+			createAgenda: async (user) => {
 				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/rubpercas", {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}`, {
 						method: "POST",
 						headers: {
 							'Accept': 'application/json'
@@ -88,9 +97,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-			deleteContact: async (id) => {
+			deleteContact: async (id, user) => {
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/rubpercas/contacts/${id}`, {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}/contacts/${id}`, {
 						method: "DELETE",
 						headers: {
 							"Accept": "application/json"
@@ -109,10 +118,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-			editContact: async (id, contact) => {
+			editContact: async (id, contact, user) => {
 				const store = getStore();
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/rubpercas/contacts/${id}`, {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}/contacts/${id}`, {
 						method: "PUT",
 						headers: {
 							'Content-Type': 'application/json',

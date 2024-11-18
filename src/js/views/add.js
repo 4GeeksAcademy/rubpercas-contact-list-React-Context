@@ -25,9 +25,9 @@ export const Add = () => {
             address: address
         };
         if (!id) {
-            actions.createContact(payload)
+            actions.createContact(payload, store.userName)
         } else {
-            actions.editContact(id, payload)
+            actions.editContact(id, payload, store.userName)
         }
         navigate("/");
         setName("");

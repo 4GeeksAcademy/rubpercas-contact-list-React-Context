@@ -31,11 +31,15 @@ const Layout = () => {
 						/>
 						<Route
 							path="/add"
-							element={store.isLoggedIn ? <Add /> : <Navigate to="/user" replace />}
+							element={
+								store.isLoggedIn ? <Add /> : <Navigate to="/user" replace />
+							}
 						/>
 						<Route
 							path="/editContact/:id"
-							element={store.isLoggedIn ? <Add /> : <Navigate to="/user" replace />}
+							element={
+								store.isLoggedIn ? <Add /> : <Navigate to="/user" replace />
+							}
 						/>
 						<Route
 							path="/user"

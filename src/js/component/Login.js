@@ -24,17 +24,18 @@ const Login = () => {
                             required />
                         <label className="c-form__buttonLabel" htmlFor="checkbox">
                             <button
-                                className="c-form__button"
+                                title="Click for login or create a new user"
+                                className="c-form__button me-1"
                                 onClick={() => {
                                     actions.setUserInput(user);
                                     actions.setIsLoggedIn(true);
+                                    actions.createUser(store.userName);
+                                    actions.createAgenda(store.userName);
+                                    actions.getAgenda(store.userName);
                                 }}
                                 type="button">
                                 <FontAwesomeIcon icon={faUser} style={{ color: "#0d6efd", }} />
                             </button>
-                        </label>
-                        <label className="c-form__buttonLabel" htmlFor="checkbox">
-                            <button className="c-form__button me-1" type="button"><FontAwesomeIcon icon={faRightToBracket} style={{ color: "#0d6efd", }} /></button>
                         </label>
                         <label className="c-form__toggle" htmlFor="checkbox" data-title="Login / New user"></label>
                     </form>
