@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../styles/login.css";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +9,11 @@ const Login = () => {
     const { store, actions } = useContext(Context);
     const [user, setUser] = useState("");
     const navigate = useNavigate();
-    if(store.isLoggedIn) navigate("/");
+  
+    useEffect(() => {
+        if (store.isLoggedIn) navigate("/"); 
+      }, [store.isLoggedIn]);
+
     return (
         <div>
             <h1 className="text-center mb-5">WELCOME</h1>
